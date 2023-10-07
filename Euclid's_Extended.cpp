@@ -16,7 +16,14 @@ to output gcd(m,n) = undefined.) If only the second integer is zero, the first i
 as the greatest common divisor.  Othwerwise, this function will repeatedly replace the second integer 
 with the remainder of dividing the first integer by the second integer (while replacing the first 
 integer with the former second integer) until the second integer is zero. The first integer is then 
-returned as the greatest common divisor. */
+returned as the greatest common divisor. 
+
+    Args: 
+        integers m and n
+    
+    Returns: 
+        This function returns the greatest common divisor of m and n, as
+        well as... */
 int euclid_Extended(int m, int n) {
     /* GCD is undefined (or infinity?) for two integers that
        are both zero. A return value of zero from this function
