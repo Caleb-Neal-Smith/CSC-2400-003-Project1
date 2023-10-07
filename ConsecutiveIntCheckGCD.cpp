@@ -30,7 +30,7 @@ void getInt(int &intOne, int &intTwo) {
     cin >> intTwo;
 }
 
-// Function: consecutiveIntGCD
+// Function: consecutiveIntCheckGCD
 /* Calculates the greatest common divisor of two integers using the
    consecutive integer checking method. 
   
