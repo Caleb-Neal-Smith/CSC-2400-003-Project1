@@ -1,5 +1,8 @@
-/* File: Euclid's_Extended.cpp*/
-
+// File: Euclid's_Extended.cpp
+// Author: Caleb Smith
+// Date: September 08, 2023
+// Modification Date: October 07, 2023
+// Description: 
 #include<iostream>
 #include<iomanip>
 #include<cstdlib>
@@ -14,25 +17,35 @@ as the greatest common divisor.  Othwerwise, this function will repeatedly repla
 with the remainder of dividing the first integer by the second integer (while replacing the first 
 integer with the former second integer) until the second integer is zero. The first integer is then 
 returned as the greatest common divisor. 
-    
+
     Args: 
         integers m and n
-
-    Returns:
-        This function returns the greatest common divisor of m and n 
-    */
-int algorithm_Euclid(int m, int n) {
-    //GCD is undefined (or infinity?) for two integers that are both zero.
+    
+    Returns: 
+        This function returns the greatest common divisor of m and n, as
+        well as... */
+int euclid_Extended(int m, int n) {
+    /* GCD is undefined (or infinity?) for two integers that
+       are both zero. A return value of zero from this function
+       will prompt the main function to output "gcd(m, n) = undefined."*/
     if (m == 0 && n ==0) {
         return 0;
     }
+    
+    /*This variable is used to store the remainder
+      of dividing m by n during the execution of the
+      function. */
     int r;
+
+    /*If either input is negative, take the absolute value
+      of that input.*/
     if (m < 0) {
         m = (m * (-1));
     }
     if (n < 0) {
         n = (n * (-1));
     } 
+    
     if (n == 0) {
         return m;
 
@@ -47,16 +60,24 @@ int algorithm_Euclid(int m, int n) {
 
 //Main body of code for this program
 int main() {
-    //Variable declarations for intOne, intTwo, and answer.
+    
+    //This is the first integer that will be passed to
+    //the euclid_Extended function. 
     int intOne; 
+
+    //This is the second integer that will be passed to
+    //the euclid_Extended function. 
     int intTwo;
+
+    //This variable is used to store and output the result
+    //of calling the e
     int answer;
     cout << "Enter an integer: ";
     cin >> intOne;
     cout << "Enter another integer: ";
     cin >> intTwo;
     //algorithm_Euclid function call
-    answer = algorithm_Euclid(intOne, intTwo);
+    answer = euclid_Extended(intOne, intTwo);
     if (answer == 0) {
         cout << "\ngcd(" << intOne << ", " << intTwo << ") = " << "undefined." << "\n";
     } else {
