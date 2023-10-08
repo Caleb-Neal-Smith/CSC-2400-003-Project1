@@ -24,7 +24,7 @@ returned as the greatest common divisor.
     Returns: 
         This function returns the greatest common divisor of m and n, as
         well as... */
-int euclid_Extended(int m, int n) {
+int euclid_Extended(int m, int n, int &x, int &y, int &q, int &r) {
     /* GCD is undefined (or infinity?) for two integers that
        are both zero. A return value of zero from this function
        will prompt the main function to output "gcd(m, n) = undefined."*/
@@ -35,7 +35,6 @@ int euclid_Extended(int m, int n) {
     /*This variable is used to store the remainder
       of dividing m by n during the execution of the
       function. */
-    int r;
 
     /*If either input is negative, take the absolute value
       of that input.*/
@@ -49,13 +48,17 @@ int euclid_Extended(int m, int n) {
     if (n == 0) {
         return m;
 
+
     }
-    euclid_Extended(n, (m%n));
+    return euclid_Extended(n, (m%n), x, y, q, r);
 }
 
 //Main body of code for this program
 int main() {
-    
+    int x;
+    int y;
+    int q;
+    int r;
     //This is the first integer that will be passed to
     //the euclid_Extended function. 
     int m; 
@@ -72,7 +75,7 @@ int main() {
     cout << "Enter another integer: ";
     cin >> n;
     //euclid_Extended function call
-    answer = euclid_Extended(m, n);
+    answer = euclid_Extended(m, n, x, y, q, r);
     if (answer == 0) {
         cout << "\ngcd(" << m << ", " << n << ") = " << "undefined." << "\n";
     } else {
