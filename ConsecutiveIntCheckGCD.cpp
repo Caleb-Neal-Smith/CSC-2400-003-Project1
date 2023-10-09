@@ -1,7 +1,7 @@
 // File: ConsecutiveIntCheckGCD.cpp
 // Author: Caleb Smith
 // Date: September 08, 2023
-// Modification Date: October 07, 2023
+// Modification Date: October 08, 2023
 /* Description: This program implements 
    the consecutive integer checking
    algorithm for computing the greatest
@@ -17,17 +17,17 @@ using namespace std;
 /* This function prompts the user for input for two integers that 
     will be passed into the consecutiveIntGCD function.
     
-    Args: 
+    Args: integers m and n
     
     Returns: 
      This function has no return value, but it does update
      the arguments that were passed by reference into the
      function. */
-void getInt(int &intOne, int &intTwo) {
+void getInt(int &m, int &n) {
     cout << "Enter an integer: ";
-    cin >> intOne;
+    cin >> m;
     cout << "Enter another integer: ";
-    cin >> intTwo;
+    cin >> n;
 }
 
 // Function: consecutiveIntCheckGCD
@@ -118,7 +118,7 @@ int min(int m, int n) {
    Returns:
     0 */
 int main() {
-    //Is it necessary to assign values to intOne and intTwo before passing them to the getInt function?
+    //Is it necessary to assign values to m and n before passing them to the getInt function?
     /* This is the first integer that will be passed to
        the consecutiveIntGCD function. */
     int m = 0; 

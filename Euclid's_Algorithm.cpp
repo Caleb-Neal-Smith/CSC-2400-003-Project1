@@ -1,8 +1,9 @@
-// File: Euclid's_Extended.cpp
+// File: Euclid's_Algorithm.cpp
 // Author: Caleb Smith
 // Date: September 08, 2023
-// Modification Date: October 07, 2023
-// Description: 
+// Modification Date: October 08, 2023
+// Description: Implements the basic Euclid's Algorithm
+// for computing Greatest Common divisor.
 #include<iostream>
 #include<iomanip>
 #include<cstdlib>
@@ -22,9 +23,8 @@ returned as the greatest common divisor.
         integers m and n
     
     Returns: 
-        This function returns the greatest common divisor of m and n, as
-        well as... */
-int euclid_Extended(int m, int n, int &x, int &y, int &q, int &r) {
+        This function returns the greatest common divisor of m and n.*/
+int algorithm_Euclid(int m, int n) {
     /* GCD is undefined (or infinity?) for two integers that
        are both zero. A return value of zero from this function
        will prompt the main function to output "gcd(m, n) = undefined."*/
@@ -35,6 +35,7 @@ int euclid_Extended(int m, int n, int &x, int &y, int &q, int &r) {
     /*This variable is used to store the remainder
       of dividing m by n during the execution of the
       function. */
+    int r;
 
     /*If either input is negative, take the absolute value
       of that input.*/
@@ -48,35 +49,38 @@ int euclid_Extended(int m, int n, int &x, int &y, int &q, int &r) {
     if (n == 0) {
         return m;
 
-
     }
-    return euclid_Extended(n, (m%n), x, y, q, r);
+    while (n!=0) {
+        r = (m % n);
+        m = n;
+        n = r;
+    }
+    return m;
 }
 
 //Main body of code for this program
 int main() {
-    int x;
-    int y;
-    int q;
-    int r;
+    
     //This is the first integer that will be passed to
-    //the euclid_Extended function. 
+    //the algorithm_Euclid function. 
     int m; 
 
     //This is the second integer that will be passed to
-    //the euclid_Extended function. 
+    //the algorithm_Euclid function. 
     int n;
 
     //This variable is used to store and output the result
-    //of calling the euclid_Extended function
+    //of calling the algorithm_Euclid function.
     int answer;
     cout << "Enter an integer: ";
     cin >> m;
     cout << "Enter another integer: ";
     cin >> n;
-    //euclid_Extended function call
-    answer = euclid_Extended(m, n, x, y, q, r);
+    //algorithm_Euclid function call
+    answer = algorithm_Euclid(m, n);
+    // Condition for inputs with an undefined greatest common divisor
     if (answer == 0) {
+        /* This is the condition for inputs with an undefined greatest common divisor. */
         cout << "\ngcd(" << m << ", " << n << ") = " << "undefined." << "\n";
     } else {
         cout << "\ngcd(" << m << ", " << n << ") = " << answer << ".\n";
